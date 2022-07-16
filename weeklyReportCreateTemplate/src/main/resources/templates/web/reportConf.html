@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title th:text="#{report.create-title.conf.url}"></title>
+	</head>
+	<body>
+		<h1 th:text="#{report.create-title.conf}"></h1>
+		<form th:action="@{/report-end}" th:object=${reportForm} method="post">
+			<table>
+				<tr>
+					<td th:text="#{report.create-one.sentence}"></td>
+					<td>
+						<span th:text="*{comment}" th:value="*{comment}"></span>
+					</td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-thisWeek}"></td>
+					<td>
+						<span th:text="#{report.create-1}"></span>
+							<span th:text="*{thisWeek1}" th:value="*{thisWeek1}"></span>
+						<span th:if="*{thisWeek2} != ''">
+							<span th:text="#{report.create-2}"></span>
+								<span th:text="*{thisWeek2}" th:value="*{thisWeek2}"></span>
+						</span>
+						<span th:if="*{thisWeek3} != ''">
+							<span th:text="#{report.create-3}"></span>
+								<span th:text="*{thisWeek3}" th:value="*{thisWeek3}"></span>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-nextWeek}"></td>
+					<td>
+						<span th:text="#{report.create-1}"></span>
+							<span th:text="*{nextWeek1}" th:value="*{nextWeek1}"></span>
+						<span th:if="*{nextWeek2} != ''">
+							<span th:text="#{report.create-2}"></span>
+								<span th:text="*{nextWeek2}" th:value="*{nextWeek2}"></span>
+						</span>
+						<span th:if="*{nextWeek3} != ''">
+							<span th:text="#{report.create-3}"></span>
+								<span th:text="*{nextWeek3}" th:value="*{nextWeek3}"></span>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-tech}"></td>
+					<td>
+						<span th:text="*{tech1}" th:value="*{tech1}"></span>
+						<span th:text="*{tech2}" th:value="*{tech2}"></span>
+						<span th:text="*{tech3}" th:value="*{tech3}"></span>
+						<span th:text="*{tech4}" th:value="*{tech4}"></span>
+						<span th:text="*{tech5}" th:value="*{tech5}"></span>
+					</td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-task}"></td>
+					<td><span th:text="*{task}" th:value="*{task}"></span></td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-progress}"></td>
+					<td><span th:text="*{progress}" th:value="*{progress}"></span></td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-thoughts}"></td>
+					<td><span th:text="*{thoughts}" th:value="*{thoughts}"></span></td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-etc}"></td>
+					<td><span th:text="*{etc}" th:value="*{etc}"></span></td>
+				</tr>
+			</table>
+			<input type="submit" name="back" th:value="#{report.create-button.back}"/>
+			<input type="submit" name="demo" th:value="#{report.create-button.demo}"/>
+			<p>
+			<input type="submit" name="regist" th:value="#{report.create-button.send}"/>
+		</form>
+	</body>
+</html>

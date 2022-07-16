@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title th:text="#{report.create-title.end}"></title>
+	</head>
+	<body>
+		<form th:action="@{/report-regist}" method="post">
+			<span th:text="#{report.create-title.demo}"></span>
+			<br>
+			<input type="submit" name="reRegist" th:value="#{report.create-button.regist}"/>
+		</form>
+	</body>
+</html>

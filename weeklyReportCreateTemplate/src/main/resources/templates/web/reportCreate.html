@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title th:text="#{report.create-title.input.url}"></title>
+	</head>
+	<body>
+		<h1 th:text="#{report.create-title.input}"></h1>
+		<form th:action="@{/report-conf}" th:object=${reportForm} method="post">
+			<p th:errors=*{all} class="error-message"></p>
+			
+			<table>
+				<tr>
+					<td th:text="#{report.create-one.sentence}"></td>
+					<td>
+						<input type="text" th:field="*{comment}" th:errorclass="error-input"/>
+					</td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-thisWeek}"></td>
+					<td>
+						<span th:text="#{report.create-1}"></span><input type="text" th:field="*{thisWeek1}" th:errorclass="error-input"/>
+						<span th:text="#{report.create-2}"></span><input type="text" th:field="*{thisWeek2}"/>
+						<span th:text="#{report.create-3}"></span><input type="text" th:field="*{thisWeek3}"/>
+					</td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-nextWeek}"></td>
+					<td>
+						<span th:text="#{report.create-1}"></span><input type="text" th:field="*{nextWeek1}" th:errorclass="error-input"/>
+						<span th:text="#{report.create-2}"></span><input type="text" th:field="*{nextWeek2}"/>
+						<span th:text="#{report.create-3}"></span><input type="text" th:field="*{nextWeek3}"/>
+					</td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-tech}"></td>
+					<td>
+						<input type="checkbox" th:field="*{tech1}" name="checkbox" th:value="#{report.create-tech1}"/>
+							<span th:text="#{report.create-tech1}"></span>
+						<input type="checkbox" th:field="*{tech2}" name="checkbox" th:value="#{report.create-tech2}"/>
+							<span th:text="#{report.create-tech2}"></span>
+						<input type="checkbox" th:field="*{tech3}" name="checkbox" th:value="#{report.create-tech3}"/>
+							<span th:text="#{report.create-tech3}"></span>
+						<input type="checkbox" th:field="*{tech4}" name="checkbox" th:value="#{report.create-tech4}"/>
+							<span th:text="#{report.create-tech4}"></span>
+						<input type="checkbox" th:field="*{tech5}" name="checkbox" th:value="#{report.create-tech5}"/>
+							<span th:text="#{report.create-tech5}"></span>
+					</td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-task}"></td>
+					<td><textarea th:field="*{task}" cols="50" rows="2" maxlength="50"></textarea></td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-progress}"></td>
+					<td><textarea th:field="*{progress}" cols="50" rows="2" maxlength="50"></textarea></td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-thoughts}"></td>
+					<td><textarea th:field="*{thoughts}" cols="50" rows="5" maxlength="500"></textarea></td>
+				</tr>
+				<tr>
+					<td th:text="#{report.create-etc}"></td>
+					<td><textarea th:field="*{etc}" cols="50" rows="2" maxlength="100"></textarea></td>
+				</tr>
+			</table>
+			<input type="submit" name="regist" th:value="#{report.create-button.conf}"/>
+		</form>
+	</body>
+</html>
